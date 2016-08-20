@@ -68,9 +68,92 @@ public class RightListViewHolder extends BaseListViewHolder {
 
 ```
 
+
+⑤定义左右两个ListView的Adapter，必须继承`LeftMenuBaseListAdapter<T extends BaseListViewHolder, K extends BaseMenuBean>`
+
+```java
+public class LeftMenuListAdapter extends LeftMenuBaseListAdapter<LeftListViewHolder, TaskListEntity.LeftMenuEntity> {
+
+    public LeftMenuListAdapter(Context ctx, List<TaskListEntity.LeftMenuEntity> list) {
+        super(ctx, list);
+    }
+
+    @Override
+    public LeftListViewHolder getViewHolder() {
+        return new LeftListViewHolder();
+    }
+
+    @Override
+    public void bindView(LeftListViewHolder leftListViewHolder, View itemView) {
+        ViewUtil.scaleContentView((ViewGroup) itemView.findViewById(R.id.root));
+        leftListViewHolder.tvMacName = (TextView) itemView.findViewById(R.id.tv_menu);
+        leftListViewHolder.tvMacId = (TextView) itemView.findViewById(R.id.tv_id);
+
+    }
+
+    @Override
+    public void bindData(LeftListViewHolder leftListViewHolder, int position) {
+        leftListViewHolder.tvMacName.setText(list.get(position).getMacName());
+        leftListViewHolder.tvMacId.setText(list.get(position).getMacId());
+    }
+
+    @Override
+    public int getLayoutId() {
+        return R.layout.list_item_menu;
+    }
+
+    //9-patch drawable
+    @Override
+    public int getIndicatorResId() {
+        return R.drawable.list_select;
+    }
+}
+```
+
+```java
+public class RightContentListAdapter extends RightMenuBaseListAdapter<RightListViewHolder, TaskListEntity.LeftMenuEntity.TaskListDataEntity> {
+
+    public RightContentListAdapter(Context ctx, List<TaskListEntity.LeftMenuEntity.TaskListDataEntity> list) {
+        super(ctx, list);
+    }
+
+    @Override
+    public RightListViewHolder getViewHolder() {
+        return new RightListViewHolder();
+    }
+
+    @Override
+    public void bindView(RightListViewHolder rightListViewHolder, View itemView) {
+        ViewUtil.scaleContentView((ViewGroup) itemView.findViewById(R.id.root));
+        rightListViewHolder.ivPic = (ImageView) itemView.findViewById(R.id.iv_pic);
+        rightListViewHolder.tvProductName = (TextView) itemView.findViewById(R.id.tv_product_name);
+        rightListViewHolder.tvMacName = (TextView) itemView.findViewById(R.id.mac_name);
+        rightListViewHolder.tvTaskNum = (TextView) itemView.findViewById(R.id.tv_task_number);
+        rightListViewHolder.tvTaskId = (TextView) itemView.findViewById(R.id.tv_task_id);
+        rightListViewHolder.tvStartTime = (TextView) itemView.findViewById(R.id.tv_start_time);
+    }
+
+    @Override
+    public void bindData(RightListViewHolder rightListViewHolder, int position) {
+        Glide.with(context).load(Constants.BASE_URL + getItem(position).getPicUrl()).into(rightListViewHolder.ivPic);
+        rightListViewHolder.tvProductName.setText(getItem(position).getProductName());
+        rightListViewHolder.tvMacName.setText(getItem(position).getMachineName());
+        rightListViewHolder.tvTaskNum.setText(getItem(position).getTaskNo());
+        rightListViewHolder.tvTaskId.setText(getItem(position).getTaskId());
+        rightListViewHolder.tvStartTime.setText(getItem(position).getStartTime());
+    }
+
+    @Override
+    public int getLayoutId() {
+        return R.layout.list_item_content;
+    }
+}
+
+```
+
 ***开始使用***
 
-⑤最后
+⑥最后
 
 ```java
 	//定义全局变量
@@ -178,4 +261,3 @@ public class RightListViewHolder extends BaseListViewHolder {
                     }
                 });
 ```
-
