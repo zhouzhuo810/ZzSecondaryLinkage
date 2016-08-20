@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/act_main_root_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f1f1f1"
+    android:orientation="horizontal"
+    tools:context="me.zhouzhuo.zzsecondarylinkagedemo.MainActivity">
+
+    <me.zhouzhuo.zzsecondarylinkage.ZzSecondaryLinkage
+        android:id="@+id/zz_linkage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </me.zhouzhuo.zzsecondarylinkage.ZzSecondaryLinkage>
+
+</LinearLayout>
