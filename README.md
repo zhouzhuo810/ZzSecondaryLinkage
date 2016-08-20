@@ -1,8 +1,21 @@
 # ZzSecondaryLinkage
 A Secondary Linkage ListView with refreshing and loading more.
 
+Gradle
+
 ```
 compile 'me.zhouzhuo.zzsecondarylinkage:zz-secondary-linkage:1.0.0'
+```
+
+Maven
+
+```
+<dependency>
+  <groupId>me.zhouzhuo.zzsecondarylinkage</groupId>
+  <artifactId>zz-secondary-linkage</artifactId>
+  <version>1.0.0</version>
+  <type>pom</type>
+</dependency>
 ```
 
 **What does it look like ?**
