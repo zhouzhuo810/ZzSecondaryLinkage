@@ -7,7 +7,7 @@ compile 'me.zhouzhuo.zzsecondarylinkage:zz-secondary-linkage:1.0.0'
 
 **What does it look like ?**
 
-![效果图](http://img.blog.csdn.net/20160820145545436)
+![效果图](https://github.com/zhouzhuo810/ZzSecondaryLinkage/blob/master/zzsecondarylinkage.gif)
 
 **How to use it ?**
 
